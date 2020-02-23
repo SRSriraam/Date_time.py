@@ -1,0 +1,44 @@
+import datetime
+import pytz
+
+today=datetime.date.today()
+print(today)
+
+birthday=datetime.date(1999,2,27)
+print(birthday)
+
+#number of days from birth
+days_since_birth=(today-birthday)
+print(days_since_birth)
+#number of days from current month
+print(today.day)
+#week day
+print(today.weekday())
+
+print(datetime.time(7, 22, 13, 12))
+
+print(datetime.datetime(1999, 2, 27, 7, 12, 13, 15))
+
+
+#Minimize 10 days from current day
+tdelta=datetime.timedelta(days=10)
+print(today-tdelta)
+#adding hours since current time
+hour_delta=datetime.timedelta(hours=10)
+print(datetime.datetime.now()+hour_delta)
+
+#install:-pip install pytz
+print(datetime.datetime.now(tz=pytz.UTC))
+
+datetime_today=datetime.datetime.now(tz=pytz.UTC)
+datetime_pacific=datetime_today.astimezone(pytz.timezone("US/pacific"))
+print(datetime_pacific)
+
+
+#string formating in date
+
+print(datetime_pacific.strftime("%B %d, %Y"))
+print(datetime_today.strftime("%B %d, %Y"))
+
+datetime_now=datetime.datetime.strptime("february 24, 2020","%B %d, %Y")
+print(datetime_now)
